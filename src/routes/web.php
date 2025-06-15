@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\WeightController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [WeightController::class, 'index']);
+Route::get('/login', [WeightController::class, 'showLoginForm'])->name('login');
+Route::get('/register', [WeightController::class, 'showRegistrationForm'])->name('register');
